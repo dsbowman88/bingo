@@ -9,8 +9,6 @@ session_start();
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <title>Raad het getal</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
-   <script src="main.js"></script>
    <style>
    body {
   margin: 0;
@@ -74,6 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $_SESSION["score"] = 0;
 
 
+  if ($_SESSION["teRadenGetal"] < $ingevoerdeGetal)
+    echo "Het juiste getal is lager.";
+  
+    if ($_SESSION["teRadenGetal"] > $ingevoerdeGetal)
+    echo "Het juiste getal is hoger.";
 
   if ($_SESSION["teRadenGetal"] == $ingevoerdeGetal) {
     echo "Goed geraden";
@@ -81,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $_SESSION["score"] += 1;
 
   }
-echo "<br>Score: " . $_SESSION["score"];
+ echo "<br>Score: " . $_SESSION["score"];
 }
 ?>
 
